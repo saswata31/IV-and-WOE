@@ -5,7 +5,7 @@
 2. This code creates an individual xlsx sheet for every variable it has in input-X dataframe. 
 
 
-3. Iteratively it puts the output for a same variable in a single xl-sheet. For eg. if for var_1 10 bins are created, then iteratively it would create bins starting from 10 to 3, and put the results for each combination (10 to 3) in the sheet named "var_1". Hence a total 8 tables would be appended back to back in the same sheet.
+3. Iteratively it puts the output for a same variable in a single xl-sheet. For eg. if for var_1, 10 bins are created, then iteratively it would create bins starting from 10 to 3, and put the results for each iteration ( from 10 to 3) in the sheet named "var_1". Hence a total 8 tables would be appended back to back in the same output sheet.
 
 
 4. The user needs to change the path of the location where the output file thus created would be saved.
