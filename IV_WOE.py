@@ -16,9 +16,6 @@ from openpyxl import load_workbook
 warnings.filterwarnings("ignore")
 
 
-# In[ ]:
-
-
 class calculate_IV:
     def __init__(self):
         import pandas as pd
@@ -103,27 +100,18 @@ class calculate_IV:
             '''
             Now writing the output to an excel sheet
             '''          
-            if not os.path.isfile("E:\IV output\output.xlsx"):
-                #print("File Does not exist, hence creating excel")
-                d3.to_excel("E:\IV output\output.xlsx",
-                            #sheet_name="sheet_1",
+            if not os.path.isfile("E:\IV output\output.xlsx"):          #update the local directore name and file name
+                d3.to_excel("E:\IV output\output.xlsx",                 #update the local directore name and file name
                             sheet_name = self.sheet_name,
                             startrow=start_row if start_row is not None else 0,
                             index = False)
             else:
                 writer = pd.ExcelWriter("E:\IV output\output.xlsx", engine='openpyxl', mode = 'a')
-    
-                #Try to open an existing workbook
-                writer.book = load_workbook("E:\IV output\output.xlsx")
-            
-                #copy existing sheets
+                writer.book = load_workbook("E:\IV output\output.xlsx")  #update the local directore name and file name
                 writer.sheets = {ws.title:ws for ws in writer.book.worksheets}
-                
-                # write out the new sheet
                 d3.to_excel(writer, sheet_name = self.sheet_name, startrow = start_row,index = False)
                 writer.save()
                 start_row = start_row + bin_size + 3
-                
             bin_size = bin_size - 1
     
     
@@ -166,30 +154,22 @@ class calculate_IV:
         '''
         Now writing the output to an excel sheet
         '''          
-        if not os.path.isfile("E:\IV output\output.xlsx"):
-            #print("File Does not exist, hence creating excel")
-            d3.to_excel("E:\IV output\output.xlsx",
-                            #sheet_name="sheet_1",
-                            sheet_name = self.sheet_name,
-                            startrow=start_row if start_row is not None else 0,
-                            index = False)
+        if not os.path.isfile("E:\IV output\output.xlsx"):              #update the local directore name and file name
+            d3.to_excel("E:\IV output\output.xlsx",                     #update the local directore name and file name
+                        sheet_name = self.sheet_name,
+                        startrow=start_row if start_row is not None else 0,
+                        index = False)
         else:
-            writer = pd.ExcelWriter("E:\IV output\output.xlsx", engine='openpyxl', mode = 'a')
-
-            #Try to open an existing workbook
+            writer = pd.ExcelWriter("E:\IV output\output.xlsx", engine='openpyxl', mode = 'a')  #update the local directore name and file name
             writer.book = load_workbook("E:\IV output\output.xlsx")
-                
-            #copy existing sheets
             writer.sheets = {ws.title:ws for ws in writer.book.worksheets}
-                
-            # write out the new sheet
             d3.to_excel(writer, sheet_name = self.sheet_name, startrow = start_row,index = False)
             writer.save()
-
-
-# In[ ]:
-
-
+'''
+End of class IV_WOE
+'''
+            
+            
 #Example-1 for data selection prior to fitting to the main model
 #Importing Titanic data data
 df = pd.read_csv("E:\\ROB\\TitanicDataAnalysis\\train.csv")
